@@ -31,8 +31,8 @@ void ugit_add(Branch* branch, int index, const char* archivo) {
 
     // Verifica si el número de commits es válido
     if (num <= 0 || num >= MAX_SIZE) {
-        printf("Error: commit no valido.\n");
-        return; // Salida en caso de error
+        //printf("Error: commit no valido.\n");
+        //return; // Salida en caso de error
     }
 
     // Comprobar si el archivo ya está en los archivos del commit actual
