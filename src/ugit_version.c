@@ -1,4 +1,5 @@
 #include "funciones.h"
+
 // Autor: Oscar Cifuentes y Javier Carcamo
 // Esta función muestra la versión actual de uGit.
 

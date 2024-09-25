@@ -9,20 +9,17 @@ int main()
 {
     char input[MAX_TEXT] = "";
     char prompt[MAX_TEXT];
-    char nameBranch[MAX_TEXT];
     int index = 0;
     infoUsuario infoUser = {"", ""};
-    Branch branch[MAX_SIZE];
-    Flag flag = {0, 0, 0, 0};
-    strcpy(prompt, "uGit> ");
-    printf("\n");
-    
-    while(strcmp(input,"exit"))
+    Branch* branch = malloc(sizeof(Branch) * MAX_SIZE);
+    Flag flag = {0, 0, 0};
+    strcpy(prompt, "uGit> ");    
+    while(1)
     {
         printf("\n%s", prompt);
         fgets(input, sizeof(input), stdin);
         input[strcspn(input, "\n")] = 0;
-        if (strcmp(input, "ugit --version") == 0) {
+        if (strcmp(input, "ugit version") == 0) {
             ugit_version();
         } else if (strncmp(input, "ugit config user.email", 22) == 0) {
             config_email(&infoUser, input + 23, &flag);
@@ -48,9 +45,16 @@ int main()
             else {
                 printf("No existe un repositorio inicializado.\n");
             }
-            
+        }else if (strcmp(input, "ugit log") == 0) {
+            if (flag.repositorio == 1) {
+                ugit_log(branch, &infoUser, index);
+            }
+            else {
+                printf("No existe un repositorio inicializado.\n");
+            }    
         } else if (strcmp(input, "exit") == 0) {
             printf("Has salido de uGit.\n");
+            return 0;
         } else {
             printf("'%s' no es un comando de uGit. Mira 'ugit help'.\n", input);
         }

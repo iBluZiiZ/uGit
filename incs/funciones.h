@@ -8,8 +8,8 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#define MAX_SIZE 100    // Variable para Maximo de Commits y Ramas
-#define MAX_TEXT 100    // Maximo Texto
+#define MAX_SIZE 100    // Variable para Maximo Tamano
+#define MAX_TEXT 256    // Maximo Texto
 
 typedef struct {
     char nombre[50];
@@ -20,13 +20,13 @@ typedef struct {
     int name;
     int email;
     int repositorio;
-    int commit;
 } Flag;
 
 typedef struct {
     char descripcion[MAX_TEXT];
     long id;
-    char archivos[MAX_SIZE];
+    char archivos[MAX_SIZE][MAX_TEXT];
+    int num_archivos;
 } Commit;
 
 typedef struct {
@@ -45,5 +45,5 @@ int create_branch_init(Branch* branch);
 unsigned int hash(const char *nameBranch);
 void ugit_commit(Branch* branch, const char* descripcion, int index);
 void ugit_add(Branch* branch, int index, const char* archivo);
-
+void ugit_log(Branch* branch, infoUsuario* User, int index);
 #endif
