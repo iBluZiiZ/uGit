@@ -1,9 +1,19 @@
 #include "funciones.h"
 
 // Autor: Oscar Cifuentes y Javier Carcamo
-// La función `ugit_help` muestra una lista de comandos disponibles en el sistema 'µGit',
-// junto con una breve descripción de lo que hace cada comando.
+// Fecha: 24-09-2024
+// Descripción: Esta función muestra una lista de comandos disponibles en el sistema 'µGit',
+//              junto con una breve descripción de lo que hace cada comando.
 
+/**
+ * Muestra una lista de comandos disponibles en el sistema 'µGit'.
+ *
+ * Comportamiento:
+ *   - Imprime en la consola los comandos que el usuario puede utilizar,
+ *     junto con una breve descripción de cada uno.
+ *   - Incluye comandos para inicializar un repositorio, mostrar la versión,
+ *     establecer configuraciones, crear commits, agregar archivos, y más.
+ */
 void ugit_help()
 {
     printf("Lista de Comandos\n");
